@@ -95,7 +95,7 @@
 		   </profile>
 		   
 		   	<profile>
-		      	<id>SystemTests</id>
+		      	<id>systemTests</id>
 		     <build>
 		         <plugins>
 		            <plugin>

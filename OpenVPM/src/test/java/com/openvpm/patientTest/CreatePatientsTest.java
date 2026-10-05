@@ -7,8 +7,10 @@ import org.testng.annotations.Test;
 import com.openvpm.baseTest.BaseClass;
 import com.openvpm.genericUtility.ExcelUtility;
 import com.openvpm.genericUtility.JavaUtility;
+import com.openvpm.genericUtility.WebdriverUtility;
 import com.openvpm.objectRepository.CreateClientsPage;
 import com.openvpm.objectRepository.CreatePatientsPage;
+import com.openvpm.objectRepository.DashboardPage;
 import com.openvpm.objectRepository.SchedulePage;
 
 @Listeners(com.openvpm.listenerUtility.ListenerImplementation.class)
@@ -36,6 +38,7 @@ public class CreatePatientsTest extends BaseClass {
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
 	}
 
+	//passed - optimized
 	@Test(groups="system")
 	public void createClientPatientAppointmentTest() throws Exception
 	{
@@ -44,35 +47,36 @@ public class CreatePatientsTest extends BaseClass {
 		int random = j.posRandomNumber();
 		
 		//read Data from Excel
-		String firstName = e.readDataFromExcelFile("Clients",4 , 0);
-		String lastName = e.readDataFromExcelFile("Clients", 4, 1) + random;
-		String email = e.readDataFromExcelFile("Clients", 4, 2);
-		String phone = e.readDataFromExcelFile("Clients", 4, 3);
+		//for client
+		String firstName = e.readDataFromExcelFile("Clients",3 , 0);
+		String lastName = e.readDataFromExcelFile("Clients", 3, 1) + random;
+		String email = e.readDataFromExcelFile("Clients", 3, 2);
+		String phone = e.readDataFromExcelFile("Clients", 3, 3);
+		
+		//for patient
+		String clientName = firstName +" "+ lastName;
+		String patientName = e.readDataFromExcelFile("Patients", 10, 0) +random;
+		String species = e.readDataFromExcelFile("Patients", 10, 1);
+		String breed = e.readDataFromExcelFile("Patients", 10, 2);
+		String sex = e.readDataFromExcelFile("Patients", 10, 3);
+		String dob = e.readDataFromExcelFile("Patients", 10, 4);
+		String color = e.readDataFromExcelFile("Patients", 10, 5);
+		
+		//for appointment
+		String location = e.readDataFromExcelFile("Schedule", 1, 0);
+		String appointmentType = e.readDataFromExcelFile("Schedule", 3, 1);
+		String doctor = e.readDataFromExcelFile("Schedule", 1, 2);
+		String room = e.readDataFromExcelFile("Schedule", 2, 3);
+		String startTime = e.readDataFromExcelFile("Schedule", 7, 4);
+		String date = j.getReqDate(10);
 		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
 		
-		String clientName = firstName +" "+ lastName;
-		String patientName = e.readDataFromExcelFile("Patients", 6, 0) +random;
-		String species = e.readDataFromExcelFile("Patients", 6, 1);
-		String breed = e.readDataFromExcelFile("Patients", 6, 2);
-		String sex = e.readDataFromExcelFile("Patients", 6, 3);
-		String dob = e.readDataFromExcelFile("Patients", 6, 4);
-		String color = e.readDataFromExcelFile("Patients", 6, 5);
-		
 		//create Patient
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
-		
-		
-		String location = e.readDataFromExcelFile("Schedule", 1, 0);
-		String appointmentType = e.readDataFromExcelFile("Schedule", 1, 1);
-		String doctor = e.readDataFromExcelFile("Schedule", 1, 2);
-		String room = e.readDataFromExcelFile("Schedule", 1, 3);
-		String startTime = e.readDataFromExcelFile("Schedule", 1, 4);
-		
-		String date = j.getReqDate(10);
 		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
