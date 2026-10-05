@@ -106,6 +106,7 @@ public class VisitPage {
 		{
 			if(e.getText().equals(patientName))
 			{
+				Thread.sleep(2000);
 				e.click();
 				break;
 			}
