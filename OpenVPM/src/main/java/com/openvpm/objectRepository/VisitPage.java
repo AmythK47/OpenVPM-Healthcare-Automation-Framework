@@ -91,7 +91,7 @@ public class VisitPage {
 	}
 
 	
-	public void checkInAndStartExam(String doctor, String patientName)
+	public void checkInAndStartExam(String doctor, String patientName) throws InterruptedException
 	{
 		w = new WebdriverUtility();
 		HomePage h = new HomePage(driver);
@@ -110,6 +110,8 @@ public class VisitPage {
 				break;
 			}
 		}
+		
+		Thread.sleep(2000);
 		
 		w.waitTillElementToBeClickable(driver, getOpenVisitBtn(), 10);
 		w.moveToElementAndClick(driver, getOpenVisitBtn());

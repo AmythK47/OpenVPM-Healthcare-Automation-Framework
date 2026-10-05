@@ -8,9 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.openvpm.baseTest.BaseClass;
 import com.openvpm.genericUtility.ExcelUtility;
 import com.openvpm.genericUtility.JavaUtility;
+import com.openvpm.genericUtility.ThreadlocalUtility;
 import com.openvpm.genericUtility.WebdriverUtility;
 import com.openvpm.objectRepository.BillingPage;
 import com.openvpm.objectRepository.CreateClientsPage;
@@ -64,14 +66,19 @@ public class BillingTest extends BaseClass {
 		String serviceName = e.readDataFromExcelFile("Billing", 1, 0);
 		String paymentMethod = e.readDataFromExcelFile("Billing", 1, 1);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data from Excel");
+		
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
+		ThreadlocalUtility.getTest().log(Status.INFO, "Created New Client");
 
 		NewInvoicePage np = new NewInvoicePage(driver);
 		np.newInvoice(clientName, serviceName, serviceName);
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Invoice Generated");
 		
 		BillingPage bp = new BillingPage(driver);
 		bp.registerPayment(clientName, paymentMethod);
+		ThreadlocalUtility.getTest().log(Status.INFO, "Payment Registered");
 		
 		boolean verify = bp.verifyPayment();
 		Assert.assertEquals(verify, true);
@@ -108,6 +115,7 @@ public class BillingTest extends BaseClass {
 		String room = e.readDataFromExcelFile("Schedule", 1, 3);
 		String startTime = e.readDataFromExcelFile("Schedule", 1, 4);
 		String date = j.getCurrentDate();
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data from Excel");
 		
 		//for SOAP notes
 		String subjective = "subjectiveDemo1";
@@ -119,22 +127,34 @@ public class BillingTest extends BaseClass {
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
+		
 		//create Patient
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
 		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
+		
 		VisitPage v = new VisitPage(driver);
 		v.checkInAndStartExam(doctor, patientName);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Visit opened checked in and exam staretd");
 		
 		SOAPDocPage spd = new SOAPDocPage(driver);
 		spd.addSOAPNotes(subjective, objective, assessment, plan);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "SOAP Notes ADDED");
+		
 		String serviceName = e.readDataFromExcelFile("Billing", 1, 0);
 		v.createInvoiceduringVisit(serviceName);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Created Invoice During Visit");
 		
 		WebdriverUtility w = new WebdriverUtility();
 		w.waitTillVisibilityOfElement(driver, v.getOpenInvoiceBtn(), 10);
@@ -185,43 +205,67 @@ public class BillingTest extends BaseClass {
 		String assessment = "assessmentDemo2";
 		String plan = "planDemo2";
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data From Excel");
+		
 		//record pre revenue
 		DashboardPage d = new DashboardPage(driver);
 		WebdriverUtility w = new WebdriverUtility();
 		String preRevenue = d.recordRevenue();
 		System.out.println("pre - " + preRevenue);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read the Revenue pre test");
+		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
 		
 		//create Patient
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
+		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
 		
 		
 		VisitPage v = new VisitPage(driver);
 		v.checkInAndStartExam(doctor, patientName);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Opened Visit checked in and started exam");
+		
 		SOAPDocPage spd = new SOAPDocPage(driver);
 		spd.addSOAPNotes(subjective, objective, assessment, plan);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Added SOAP Notes");
+		
 		v.createInvoiceduringVisit(serviceName);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Created Invoice for the visit");
+		
 		v.finalizeHandout("None Required");
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Finalized the Handoff");
 		
 		w.waitTillVisibilityOfElement(driver, v.getOpenInvoiceBtn(), 10);
 		v.getOpenInvoiceBtn().click();
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Invoice Opened");
+		
 		BillingPage b = new BillingPage(driver);
 		b.registerPaymentfromVisit(paymentMethod);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Register Payment");
+		
 		DashboardPage dp = new DashboardPage(driver);
 		String postRevenue = dp.recordRevenue();
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Post Payment Revenue");
+		
 		System.out.println("post - " + postRevenue);
 		Assert.assertNotEquals(preRevenue, postRevenue);
 

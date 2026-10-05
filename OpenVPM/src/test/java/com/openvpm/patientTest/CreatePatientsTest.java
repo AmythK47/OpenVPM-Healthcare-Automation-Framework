@@ -4,9 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.openvpm.baseTest.BaseClass;
 import com.openvpm.genericUtility.ExcelUtility;
 import com.openvpm.genericUtility.JavaUtility;
+import com.openvpm.genericUtility.ThreadlocalUtility;
 import com.openvpm.genericUtility.WebdriverUtility;
 import com.openvpm.objectRepository.CreateClientsPage;
 import com.openvpm.objectRepository.CreatePatientsPage;
@@ -69,18 +71,25 @@ public class CreatePatientsTest extends BaseClass {
 		String room = e.readDataFromExcelFile("Schedule", 2, 3);
 		String startTime = e.readDataFromExcelFile("Schedule", 7, 4);
 		String date = j.getReqDate(10);
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data From Excel");
 		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
+		
 		//create Patient
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
+		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
 		
 		String actText = sp.getAppointmentCreatedPopup().getText();
 		String expctdText = "Appointment created";

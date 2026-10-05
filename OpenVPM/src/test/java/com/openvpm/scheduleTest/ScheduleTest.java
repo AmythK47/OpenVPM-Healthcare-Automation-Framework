@@ -8,9 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.openvpm.baseTest.BaseClass;
 import com.openvpm.genericUtility.ExcelUtility;
 import com.openvpm.genericUtility.JavaUtility;
+import com.openvpm.genericUtility.ThreadlocalUtility;
 import com.openvpm.genericUtility.WebdriverUtility;
 import com.openvpm.objectRepository.CreateClientsPage;
 import com.openvpm.objectRepository.CreatePatientsPage;
@@ -69,12 +71,15 @@ public class ScheduleTest extends BaseClass {
 		String room = e.readDataFromExcelFile("Schedule", 7, 3);
 		String startTime = e.readDataFromExcelFile("Schedule", 12, 4);
 		
-		//String date = j.getCurrentDate();
 		String date = j.getReqDate(5);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data from Excel");
 		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
 		
 		boolean verify = sp.verifyAppointment(doctor, patientName);
 		Assert.assertEquals(verify, true);
@@ -118,24 +123,35 @@ public class ScheduleTest extends BaseClass {
 		String assessment = "assessmentDemo4";
 		String plan = "planDemo4";
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data from Excel");
+		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
 		
 		//create Patient
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
+		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
 		
 		VisitPage v = new VisitPage(driver);
 		v.checkInAndStartExam(doctor, patientName);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Open Visit , Cheked in and Started Exam");
+		
 		SOAPDocPage spd = new SOAPDocPage(driver);
 		spd.addSOAPNotes(subjective, objective, assessment, plan);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Added SOAP Notes");
 		
 		RecordsPage r = new RecordsPage(driver);
 		boolean verify =  r.verifySOAP(patientName, assessment);
@@ -176,9 +192,13 @@ public class ScheduleTest extends BaseClass {
 		String startTime = e.readDataFromExcelFile("Schedule", 14, 4);
 		String date = j.getReqDate(8);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data from Excel");
+		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
 		
 		WebdriverUtility w = new WebdriverUtility();
 		HomePage h = new HomePage(driver);
@@ -188,12 +208,16 @@ public class ScheduleTest extends BaseClass {
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
+		
 		HomePage hp = new HomePage(driver);
 		w.waitTillVisibilityOfElement(driver, hp.getScheduleLnk(), 10);
 		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
 		
 		String actText = sp.getAppointmentCreatedPopup().getText();
 		String expctdText = "Appointment created";
@@ -237,10 +261,13 @@ public class ScheduleTest extends BaseClass {
 		String objective = "objectiveDemo6";
 		String assessment = "assessmentDemo6";
 		String plan = "planDemo6";
+		ThreadlocalUtility.getTest().log(Status.INFO, "read Data From Excel");
 		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
 		
 		WebdriverUtility w = new WebdriverUtility();
 		HomePage h = new HomePage(driver);
@@ -250,6 +277,8 @@ public class ScheduleTest extends BaseClass {
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
+		
 		HomePage hp = new HomePage(driver);
 		w.waitTillVisibilityOfElement(driver, hp.getScheduleLnk(), 10);
 		
@@ -257,11 +286,17 @@ public class ScheduleTest extends BaseClass {
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
+		
 		VisitPage v = new VisitPage(driver);
 		v.checkInAndStartExam(doctor, patientName);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Open visit and check in , start exam");
+		
 		SOAPDocPage spd = new SOAPDocPage(driver);
 		spd.addSOAPNotes(subjective, objective, assessment, plan);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Added SOAP Notes");
 		
 		PatientDashboardPage pp = new PatientDashboardPage(driver);
 		boolean verify = pp.confirmSOAPInDashboard(patientName, assessment);
@@ -311,29 +346,43 @@ public class ScheduleTest extends BaseClass {
 		String vaccinantion = e.readDataFromExcelFile("Patients", 2, 6);
 		String productName = e.readDataFromExcelFile("Patients", 2, 7);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data from Excel");
+		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
+		
 		//create Patient
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
 
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
+		
 		//checkIn and start exam
 		VisitPage v = new VisitPage(driver);
 		v.checkInAndStartExam(doctor, patientName);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "open visit check in and start exam");
 		
 		//add Soap notes
 		SOAPDocPage spd = new SOAPDocPage(driver);
 		spd.addSOAPNotes(subjective, objective, assessment, plan);
 		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Added SOAP Notes");
+		
 		//add vaccination
 		VaccinationAddPage vap = new VaccinationAddPage(driver);
 		vap.addVaccination(vaccinantion, productName);
+		
+		ThreadlocalUtility.getTest().log(Status.INFO, "Added Vaccination");
 		
 		PatientDashboardPage pp = new PatientDashboardPage(driver);
 		boolean verify = pp.confirmVaccinationinDashboard(patientName, vaccinantion);
