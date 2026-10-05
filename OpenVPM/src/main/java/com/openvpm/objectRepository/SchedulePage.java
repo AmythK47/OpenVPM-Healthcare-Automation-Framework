@@ -211,9 +211,7 @@ public class SchedulePage {
 		
 		w.selectDropdownByvalue(timeDD, time);
 		
-		saveBtn.click();
-		
-		
+		saveBtn.click();	
 		
 	}
 	
@@ -229,7 +227,7 @@ public class SchedulePage {
 
 		for(WebElement e : mnthlyCalVerify)
 		{
-			if(e.getText().contains(patientName))
+			if(e.getText().equals(patientName))
 				return true;
 		}
 		

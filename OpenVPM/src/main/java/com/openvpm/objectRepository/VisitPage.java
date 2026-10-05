@@ -104,7 +104,7 @@ public class VisitPage {
 		
 		for(WebElement e : s.getDayCalVerify())
 		{
-			if(e.getText().contains(patientName))
+			if(e.getText().equals(patientName))
 			{
 				e.click();
 				break;

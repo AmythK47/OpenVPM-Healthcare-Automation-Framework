@@ -129,7 +129,7 @@ public class BillingPage {
 
 	        for(WebElement e : clients)
 	        {
-	            if(e.getText().contains(clientName))
+	            if(e.getText().equals(clientName))
 	            {
 	                return e;
 	            }
