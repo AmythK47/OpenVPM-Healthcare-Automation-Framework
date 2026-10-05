@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="tests" name="DistributedParallel">
+
+<listeners>
+	<listener class-name="com.openvpm.listenerUtility.ListenerImplementation"></listener>
+</listeners>
+
+  <test parallel="tests" name="BillingTest">
+    <classes>
+      <class name="com.openvpm.billingTest.BillingTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+    <test parallel="tests" name="ClientsTest">
+    <classes>
+      <class name="com.openvpm.clientsTest.CreateClientsTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+    <test parallel="tests" name="PatientsTest">
+    <classes>
+      <class name="com.openvpm.patientTest.CreatePatientsTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+    <test thread-count="4" parallel="tests" name="ScheduleTest">
+    <classes>
+      <class name="com.openvpm.scheduleTest.ScheduleTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- DistributedParallel -->
