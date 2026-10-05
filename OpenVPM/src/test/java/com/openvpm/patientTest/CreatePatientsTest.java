@@ -1,6 +1,11 @@
 package com.openvpm.patientTest;
 
+import java.time.Duration;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -72,24 +77,29 @@ public class CreatePatientsTest extends BaseClass {
 		String startTime = e.readDataFromExcelFile("Schedule", 7, 4);
 		String date = j.getReqDate(10);
 		ThreadlocalUtility.getTest().log(Status.INFO, "Read Data From Excel");
+		Reporter.log("Read Data From Excel",true);
 		
 		//create Client
 		CreateClientsPage cc = new CreateClientsPage(driver);
 		cc.createClient(firstName, lastName, email, phone);
 		
 		ThreadlocalUtility.getTest().log(Status.INFO, "New Client Created");
+		Reporter.log("New Client Created",true);
 		
 		//create Patient
 		CreatePatientsPage cp = new CreatePatientsPage(driver);
 		cp.createPatient(clientName, patientName, species, breed, sex, dob, color);	
 		
 		ThreadlocalUtility.getTest().log(Status.INFO, "New Patient Created");
+		Reporter.log("New Patient Created",true);
 		
 		//create Appointment
 		SchedulePage sp = new SchedulePage(driver);
 		sp.newAppointment(location, patientName, appointmentType, doctor, room, date, startTime);
 		
+		
 		ThreadlocalUtility.getTest().log(Status.INFO, "New Appointment Created");
+		Reporter.log("New Appointment Created",true);
 		
 		String actText = sp.getAppointmentCreatedPopup().getText();
 		String expctdText = "Appointment created";

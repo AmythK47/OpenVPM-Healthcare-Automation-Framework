@@ -113,7 +113,7 @@ public class ScheduleTest extends BaseClass {
 		String location = e.readDataFromExcelFile("Schedule", 1, 0);
 		String appointmentType = e.readDataFromExcelFile("Schedule", 3, 1);
 		String doctor = e.readDataFromExcelFile("Schedule", 2, 2);
-		String room = e.readDataFromExcelFile("Schedule", 5, 3);
+		String room = e.readDataFromExcelFile("Schedule", 7, 3);
 		String startTime = e.readDataFromExcelFile("Schedule", 15, 4);
 		String date = j.getCurrentDate();
 		

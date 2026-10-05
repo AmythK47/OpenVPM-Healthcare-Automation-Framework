@@ -1,6 +1,7 @@
 package com.openvpm.baseTest;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -48,6 +49,7 @@ public class BaseClass {
 		w.implicitWait(driver, 10);
 		
 		ThreadlocalUtility.setDriver(driver);
+		Reporter.log("Browser Launched Successfully",true);
 	}
 	
 	@BeforeMethod(groups= {"smoke","integration", "system"})
@@ -61,6 +63,8 @@ public class BaseClass {
 		LoginPage l = new LoginPage(ThreadlocalUtility.getDriver());
 		l.login(url, email, password);
 		
+		Reporter.log("Successfull Login",true);
+		
 	}
 	
 	@AfterMethod(groups= {"smoke","integration", "system"})
@@ -69,6 +73,7 @@ public class BaseClass {
 		//logout
 		HomePage h = new HomePage(ThreadlocalUtility.getDriver());
 		h.signOut();
+		Reporter.log("Successfull Logout",true);
 	}
 	
 	@AfterClass(groups= {"smoke","integration", "system"})
@@ -76,6 +81,7 @@ public class BaseClass {
 	{
 		//close browser
 		w.closeBrowser(driver);
+		Reporter.log("Successfull Closed Browser",true);
 	}
 	
 	@AfterSuite

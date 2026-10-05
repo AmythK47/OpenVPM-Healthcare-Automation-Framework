@@ -1,11 +1,14 @@
 package com.openvpm.objectRepository;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.openvpm.genericUtility.WebdriverUtility;
 
@@ -212,6 +215,10 @@ public class SchedulePage {
 		w.selectDropdownByvalue(timeDD, time);
 		
 		saveBtn.click();	
+		
+		w.waitTillVisibilityOfElement(driver, appointmentCreatedPopup, 15);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.invisibilityOf(appointmentCreatedPopup));
 		
 	}
 	
