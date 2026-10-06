@@ -67,7 +67,7 @@ public class ScheduleTest extends BaseClass {
 		String location = e.readDataFromExcelFile("Schedule", 1, 0);
 		String patientName = e.readDataFromExcelFile("Patients", 1, 0);
 		String appointmentType = e.readDataFromExcelFile("Schedule", 2, 1);
-		String doctor = e.readDataFromExcelFile("Schedule", 1, 2);
+		String doctor = e.readDataFromExcelFile("Schedule", 3, 2);
 		String room = e.readDataFromExcelFile("Schedule", 7, 3);
 		String startTime = e.readDataFromExcelFile("Schedule", 12, 4);
 		
@@ -380,13 +380,12 @@ public class ScheduleTest extends BaseClass {
 		
 		//add vaccination
 		VaccinationAddPage vap = new VaccinationAddPage(driver);
-		vap.addVaccination(vaccinantion, productName);
-		
+		vap.addVaccination(vaccinantion, productName);	
 		ThreadlocalUtility.getTest().log(Status.INFO, "Added Vaccination");
 		
 		PatientDashboardPage pp = new PatientDashboardPage(driver);
 		boolean verify = pp.confirmVaccinationinDashboard(patientName, vaccinantion);
-		
+
 		Assert.assertEquals(verify, true);
 	}
 	

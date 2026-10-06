@@ -1,44 +1,272 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="1" failed="2" skipped="0">
   <reporter-output>
+    <line>
+      <![CDATA[Browser Launched Successfully]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Login]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Logout]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Closed Browser]]>
+    </line>
+    <line>
+      <![CDATA[Browser Launched Successfully]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Login]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Logout]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Login]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Logout]]>
+    </line>
+    <line>
+      <![CDATA[Successfull Closed Browser]]>
+    </line>
   </reporter-output>
-  <suite started-at="2026-10-05T13:32:28 IST" name="Default suite" finished-at="2026-10-05T13:33:33 IST" duration-ms="64270">
+  <suite started-at="2026-10-05T16:14:09 IST" name="SmokeSuite" finished-at="2026-10-05T16:16:41 IST" duration-ms="152153">
     <groups>
       <group name="smoke">
-        <method signature="ScheduleTest.addSOAPNotes()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" name="addSOAPNotes" class="com.openvpm.scheduleTest.ScheduleTest"/>
+        <method signature="BillingTest.registerPaymentTest()[pri:0, instance:com.openvpm.billingTest.BillingTest@682b2fa]" name="registerPaymentTest" class="com.openvpm.billingTest.BillingTest"/>
+        <method signature="ScheduleTest.addSOAPNotes()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" name="addSOAPNotes" class="com.openvpm.scheduleTest.ScheduleTest"/>
+        <method signature="ScheduleTest.appointmentVerificationTest()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" name="appointmentVerificationTest" class="com.openvpm.scheduleTest.ScheduleTest"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2026-10-05T13:32:28 IST" name="Default test" finished-at="2026-10-05T13:33:33 IST" duration-ms="64270">
-      <class name="com.openvpm.scheduleTest.ScheduleTest">
-        <test-method is-config="true" signature="configBS()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" started-at="2026-10-05T13:32:28 IST" name="configBS" finished-at="2026-10-05T13:32:28 IST" duration-ms="12" status="PASS">
+    <test started-at="2026-10-05T16:14:09 IST" name="Test" finished-at="2026-10-05T16:16:41 IST" duration-ms="152153">
+      <class name="com.openvpm.billingTest.BillingTest">
+        <test-method is-config="true" signature="configBC()[pri:0, instance:com.openvpm.billingTest.BillingTest@682b2fa]" started-at="2026-10-05T16:14:09 IST" name="configBC" finished-at="2026-10-05T16:14:11 IST" duration-ms="1663" status="PASS">
           <reporter-output>
-          </reporter-output>
-        </test-method> <!-- configBS -->
-        <test-method is-config="true" signature="configBC()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" started-at="2026-10-05T13:32:28 IST" name="configBC" finished-at="2026-10-05T13:32:31 IST" duration-ms="2228" status="PASS">
-          <reporter-output>
+            <line>
+              <![CDATA[Browser Launched Successfully]]>
+            </line>
           </reporter-output>
         </test-method> <!-- configBC -->
-        <test-method is-config="true" signature="configBM()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" started-at="2026-10-05T13:32:31 IST" name="configBM" finished-at="2026-10-05T13:32:31 IST" duration-ms="573" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.openvpm.billingTest.BillingTest@682b2fa]" started-at="2026-10-05T16:14:11 IST" name="configBM" finished-at="2026-10-05T16:14:12 IST" duration-ms="877" status="PASS">
           <reporter-output>
+            <line>
+              <![CDATA[Successfull Login]]>
+            </line>
           </reporter-output>
         </test-method> <!-- configBM -->
-        <test-method signature="addSOAPNotes()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" started-at="2026-10-05T13:32:31 IST" name="addSOAPNotes" finished-at="2026-10-05T13:33:30 IST" duration-ms="58837" status="PASS">
+        <test-method signature="registerPaymentTest()[pri:0, instance:com.openvpm.billingTest.BillingTest@682b2fa]" started-at="2026-10-05T16:14:12 IST" name="registerPaymentTest" finished-at="2026-10-05T16:14:30 IST" duration-ms="18323" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerPaymentTest -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.openvpm.billingTest.BillingTest@682b2fa]" started-at="2026-10-05T16:14:30 IST" name="configAM" finished-at="2026-10-05T16:14:32 IST" duration-ms="2197" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Successfull Logout]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configAM -->
+        <test-method is-config="true" signature="configAC()[pri:0, instance:com.openvpm.billingTest.BillingTest@682b2fa]" started-at="2026-10-05T16:14:32 IST" name="configAC" finished-at="2026-10-05T16:14:33 IST" duration-ms="234" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Successfull Closed Browser]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configAC -->
+      </class> <!-- com.openvpm.billingTest.BillingTest -->
+      <class name="com.openvpm.scheduleTest.ScheduleTest">
+        <test-method is-config="true" signature="configBC()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:14:33 IST" name="configBC" finished-at="2026-10-05T16:14:33 IST" duration-ms="813" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Browser Launched Successfully]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configBC -->
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:14:33 IST" name="configBM" finished-at="2026-10-05T16:14:34 IST" duration-ms="646" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Successfull Login]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method signature="addSOAPNotes()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:14:34 IST" name="addSOAPNotes" finished-at="2026-10-05T16:15:39 IST" duration-ms="64742" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //li/descendant::div[contains(text(),'Appointment created')]'
+(tried for 15 seconds with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //li/descendant::div[contains(text(),'Appointment created')]'
+(tried for 15 seconds with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:85)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:234)
+at com.openvpm.genericUtility.WebdriverUtility.waitTillVisibilityOfElement(WebdriverUtility.java:87)
+at com.openvpm.objectRepository.SchedulePage.newAppointment(SchedulePage.java:219)
+at com.openvpm.scheduleTest.ScheduleTest.addSOAPNotes(ScheduleTest.java:142)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//li/descendant::div[contains(text(),'Appointment created')]"}
+  (Session info: chrome=154.0.8037.97)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [129f6cb689fc94bdc2ff377200a549c8, findElement {using=xpath, value=//li/descendant::div[contains(text(),'Appointment created')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 154.0.8037.97, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59366}, goog:processID: 14788, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59366/devtoo..., se:cdpVersion: 154.0.8037.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 129f6cb689fc94bdc2ff377200a549c8
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:429)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:423)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy20.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:365)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:351)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:348)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:210)
+... 29 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addSOAPNotes -->
-        <test-method is-config="true" signature="configAM()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" started-at="2026-10-05T13:33:30 IST" name="configAM" finished-at="2026-10-05T13:33:32 IST" duration-ms="2207" status="PASS">
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:15:39 IST" name="configAM" finished-at="2026-10-05T16:15:41 IST" duration-ms="2144" status="PASS">
           <reporter-output>
+            <line>
+              <![CDATA[Successfull Logout]]>
+            </line>
           </reporter-output>
         </test-method> <!-- configAM -->
-        <test-method is-config="true" signature="configAC()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" started-at="2026-10-05T13:33:32 IST" name="configAC" finished-at="2026-10-05T13:33:33 IST" duration-ms="372" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:15:41 IST" name="configBM" finished-at="2026-10-05T16:15:41 IST" duration-ms="443" status="PASS">
           <reporter-output>
+            <line>
+              <![CDATA[Successfull Login]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method signature="appointmentVerificationTest()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:15:41 IST" name="appointmentVerificationTest" finished-at="2026-10-05T16:16:39 IST" duration-ms="57193" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //li/descendant::div[contains(text(),'Appointment created')]'
+(tried for 15 seconds with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //li/descendant::div[contains(text(),'Appointment created')]'
+(tried for 15 seconds with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:85)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:234)
+at com.openvpm.genericUtility.WebdriverUtility.waitTillVisibilityOfElement(WebdriverUtility.java:87)
+at com.openvpm.objectRepository.SchedulePage.newAppointment(SchedulePage.java:219)
+at com.openvpm.scheduleTest.ScheduleTest.appointmentVerificationTest(ScheduleTest.java:80)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//li/descendant::div[contains(text(),'Appointment created')]"}
+  (Session info: chrome=154.0.8037.97)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.43.0', revision: 'dd0f534'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.11'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [129f6cb689fc94bdc2ff377200a549c8, findElement {using=xpath, value=//li/descendant::div[contains(text(),'Appointment created')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 154.0.8037.97, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59366}, goog:processID: 14788, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59366/devtoo..., se:cdpVersion: 154.0.8037.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 129f6cb689fc94bdc2ff377200a549c8
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:429)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:423)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy20.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:365)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:351)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:348)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:210)
+... 29 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- appointmentVerificationTest -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:16:39 IST" name="configAM" finished-at="2026-10-05T16:16:41 IST" duration-ms="2151" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Successfull Logout]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configAM -->
+        <test-method is-config="true" signature="configAC()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@477b4cdf]" started-at="2026-10-05T16:16:41 IST" name="configAC" finished-at="2026-10-05T16:16:41 IST" duration-ms="351" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Successfull Closed Browser]]>
+            </line>
           </reporter-output>
         </test-method> <!-- configAC -->
-        <test-method is-config="true" signature="configAS()[pri:0, instance:com.openvpm.scheduleTest.ScheduleTest@7586beff]" started-at="2026-10-05T13:33:33 IST" name="configAS" finished-at="2026-10-05T13:33:33 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- configAS -->
       </class> <!-- com.openvpm.scheduleTest.ScheduleTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- SmokeSuite -->
 </testng-results>
